@@ -2,3 +2,4 @@
 
 django
 pip-tools
+python-decouple
