@@ -3,12 +3,14 @@
 
 PIP_COMPILE = pip-compile --rebuild --upgrade
 
+help: ## display this help message
+	@echo "Please use \`make <target>' where <target> is one of"
+	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | sort | awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'
 
-
-requirements:
+requirements: ## install development environment requirements
 	pip install -r requirements/requirements.txt
 
-upgrade:
+upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	pip install -qr requirements/requirements.txt
 	$(PIP_COMPILE) -o requirements/requirments.txt requirements/requirements.in
 
