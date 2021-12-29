@@ -14,6 +14,6 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip install -qr requirements/requirements.txt
 	$(PIP_COMPILE) -o requirements/requirments.txt requirements/requirements.in
 
-secret:
+secret: ## create the random secret key necessary to run the server
 	python -c 'from django.core.management.utils import get_random_secret_key; \
             print("SECRET_KEY=" + get_random_secret_key())' > delights/.env
