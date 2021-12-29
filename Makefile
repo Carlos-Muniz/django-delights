@@ -12,7 +12,7 @@ requirements: ## install development environment requirements
 
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	pip install -qr requirements/requirements.txt
-	$(PIP_COMPILE) -o requirements/requirments.txt requirements/requirements.in
+	$(PIP_COMPILE) -o requirements/requirements.txt requirements/requirements.in
 
 secret: ## create the random secret key necessary to run the server
 	python -c 'from django.core.management.utils import get_random_secret_key; \
