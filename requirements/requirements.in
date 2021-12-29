@@ -3,3 +3,5 @@
 django
 pip-tools
 python-decouple
+black
+flake8
