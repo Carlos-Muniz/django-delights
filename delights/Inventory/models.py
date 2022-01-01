@@ -27,7 +27,7 @@ class Ingredient(models.Model):
         (GRAM, "Gram"),
         (COUNT, "Count"),
     ]
-    name = models.CharField(max_length=64, primary_key=True, unique=True)
+    name = models.CharField(max_length=64)
     quantity = models.DecimalField(decimal_places=1, max_digits=4)
     unit = models.CharField(max_length=4, choices=UNIT_TYPE_CHOICES, default=POUND)
 
@@ -36,7 +36,7 @@ class Ingredient(models.Model):
 
 
 class MenuItem(models.Model):
-    title = models.CharField(max_length=128, primary_key=True, unique=True)
+    title = models.CharField(max_length=128)
     price = models.DecimalField(decimal_places=2, max_digits=5)
 
     def get_absolute_url(self):

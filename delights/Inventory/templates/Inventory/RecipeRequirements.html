@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Django Delights{% endblock %}
+{% block content %}
+  <div>
+    <h2>Recipes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Menu Item</th>
+          <th>Ingredient</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for RecipeRequirement in object_list %}
+        <tr>
+          <td> {{ RecipeRequirement.menu_item.title }}</td>
+          <td>
+            <a href="{% url "update_RecipeRequirement" RecipeRequirement.id%}">{{ RecipeRequirement.ingredient.name }}</a>
+          </td>
+          <td> {{ RecipeRequirement.quantity }}</td>
+          <td> {{ RecipeRequirement.ingredient.unit }}</td>
+          <td><a href="{% url "delete_RecipeRequirement" RecipeRequirement.id %}">❌</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url "create_RecipeRequirement" %}">➕</a>
+  </div>
+{% endblock %}

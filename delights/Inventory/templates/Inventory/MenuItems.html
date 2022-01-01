@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Django Delights{% endblock %}
+{% block content %}
+  <div>
+    <h2>Menu Items</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for MenuItem in object_list %}
+        <tr>
+          <td>
+            <a href="{% url "update_MenuItem" MenuItem.id %}">{{ MenuItem.title }}</a>
+          </td>
+          <td> {{ MenuItem.price }}</td>
+          <td><a href="{% url "delete_MenuItem" MenuItem.id %}">❌</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url "create_MenuItem" %}">➕</a>
+  </div>
+{% endblock %}
