@@ -34,6 +34,9 @@ class Ingredient(models.Model):
     def get_absolute_url(self):
         return "/Ingredients"
 
+    def __str__(self):
+        return f"{self.name} ({self.unit})"
+
 
 class MenuItem(models.Model):
     title = models.CharField(max_length=128)
@@ -41,6 +44,9 @@ class MenuItem(models.Model):
 
     def get_absolute_url(self):
         return "/MenuItems"
+
+    def __str__(self):
+        return f"{self.title} at ${self.price}"
 
 
 class RecipeRequirement(models.Model):
