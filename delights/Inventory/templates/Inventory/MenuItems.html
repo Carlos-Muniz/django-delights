@@ -4,12 +4,13 @@
 {% block content %}
   <div>
     <h2>Menu Items</h2>
+    <a href="{% url "create_MenuItem" %}">Add a new Menu Item</a>
     <table>
       <thead>
         <tr>
           <th>Title</th>
           <th>Price</th>
-          <th>Actions</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -18,12 +19,11 @@
           <td>
             <a href="{% url "update_MenuItem" MenuItem.id %}">{{ MenuItem.title }}</a>
           </td>
-          <td> {{ MenuItem.price }}</td>
+          <td> ${{ MenuItem.price }}</td>
           <td><a href="{% url "delete_MenuItem" MenuItem.id %}">❌</a></td>
         </tr>
       {% endfor %}
       </tbody>
     </table>
-    <a href="{% url "create_MenuItem" %}">➕</a>
   </div>
 {% endblock %}

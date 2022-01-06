@@ -4,6 +4,7 @@
 {% block content %}
   <div>
     <h2>Recipes</h2>
+    <a href="{% url "create_RecipeRequirement" %}">Add a new Recipe Requirement</a>
     <table>
       <thead>
         <tr>
@@ -11,7 +12,7 @@
           <th>Ingredient</th>
           <th>Quantity</th>
           <th>Unit</th>
-          <th>Actions</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +29,6 @@
       {% endfor %}
       </tbody>
     </table>
-    <a href="{% url "create_RecipeRequirement" %}">➕</a>
+
   </div>
 {% endblock %}

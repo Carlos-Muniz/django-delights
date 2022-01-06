@@ -4,13 +4,14 @@
 {% block content %}
   <div>
     <h2>Ingredients</h2>
+    <a href="{% url "create_Ingredient" %}">Add a new Ingredient</a>
     <table>
       <thead>
         <tr>
           <th>Name</th>
           <th>Quantity</th>
           <th>Unit</th>
-          <th>Actions</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,5 @@
       {% endfor %}
       </tbody>
     </table>
-    <a href="{% url "create_Ingredient" %}">➕</a>
   </div>
 {% endblock %}
