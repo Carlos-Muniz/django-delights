@@ -1,5 +1,5 @@
 # django-delights makefile
-.PHONY: requirements upgrade
+.PHONY: requirements upgrade all migrate runserver clean shell
 
 PIP_COMPILE = pip-compile --rebuild --upgrade
 
@@ -17,3 +17,22 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 secret: ## create the random secret key necessary to run the server
 	python -c 'from django.core.management.utils import get_random_secret_key; \
             print("SECRET_KEY=" + get_random_secret_key())' > delights/.env
+
+migrate: ## makes migrations and migrates via django manage.py
+	python delights/manage.py makemigrations
+	python delights/manage.py migrate
+
+runserver: ## runs the server via django manage.py
+	python delights/manage.py runserver
+
+clean: ## removes all created files for a blank slate
+	rm -f delights/.env
+	rm -f delights/*db.sqlite3
+	rm -rf delights/*/__pycache__
+	rm -rf delights/Inventory/migrations/0*
+	rm -rf delights/Inventory/migrations/__pycache__
+
+shell: ## creates a shell via django manage.py
+	python delights/manage.py shell
+
+all: clean requirements secret migrate runserver
