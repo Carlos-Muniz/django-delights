@@ -65,3 +65,16 @@ class Purchase(models.Model):
 
     def get_absolute_url(self):
         return "/Purchases"
+
+    """ The sum of the unit_price for each ingredient used in a menu_item"""
+    def get_cost(self):
+        recipe_objects = RecipeRequirement.objects.filter(menu_item=self.menu_item)
+        return sum([z.ingredient.unit_price * z.quantity for z in recipe_objects])
+
+    """ The price of the menu_item"""
+    def get_revenue(self):
+        return self.menu_item.price
+
+    """ The revenue - the cost"""
+    def get_profit(self):
+        return float(self.get_revenue) - float(self.get_cost())
