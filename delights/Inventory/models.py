@@ -30,6 +30,7 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=64)
     quantity = models.DecimalField(decimal_places=1, max_digits=4)
     unit = models.CharField(max_length=4, choices=UNIT_TYPE_CHOICES, default=POUND)
+    unit_price = models.DecimalField(decimal_places=2, max_digits=5)
 
     def get_absolute_url(self):
         return "/Ingredients"

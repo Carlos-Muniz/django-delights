@@ -102,3 +102,7 @@ class DeletePurchaseView(DeleteView):
 
 class FinancesView(TemplateView):
     template_name = "Inventory/Finances.html"
+
+    def get_context_data(self, **kwargs):
+        context = {}
+        return context

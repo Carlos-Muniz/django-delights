@@ -11,6 +11,7 @@
           <th>Name</th>
           <th>Quantity</th>
           <th>Unit</th>
+          <th>Unit Price</th>
           <th></th>
         </tr>
       </thead>
@@ -22,6 +23,7 @@
           </td>
           <td> {{ Ingredient.quantity }}</td>
           <td> {{ Ingredient.unit }}</td>
+          <td> ${{ Ingredient.unit_price}}</td>
 
           <td><a href="{% url "delete_Ingredient" Ingredient.id %}">❌</a></td>
         </tr>
