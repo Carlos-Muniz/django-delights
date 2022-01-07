@@ -35,4 +35,7 @@ clean: ## removes all created files for a blank slate
 shell: ## creates a shell via django manage.py
 	python delights/manage.py shell
 
-all: clean requirements secret migrate runserver
+import-demo: ## imports demo data via django manage.py
+	python delights/manage.py loaddata demo.json
+
+demo: clean requirements secret migrate import-demo runserver ## runs demo
