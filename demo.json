@@ -456,7 +456,7 @@
     "name": "white sugar",
     "quantity": "2.0",
     "unit": "CUP",
-    "unit_price": "0.1"
+    "unit_price": "0.10"
   }
 },
 {
@@ -476,7 +476,7 @@
     "name": "sliced peaches in juice",
     "quantity": "29.0",
     "unit": "OZ",
-    "unit_price": "1.84"
+    "unit_price": "0.06"
   }
 },
 {
@@ -496,7 +496,7 @@
     "name": "butter, melted",
     "quantity": "1.0",
     "unit": "CUP",
-    "unit_price": ".50"
+    "unit_price": "0.50"
   }
 },
 {
@@ -506,7 +506,7 @@
     "name": "milk",
     "quantity": "1.0",
     "unit": "CUP",
-    "unit_price": ".20"
+    "unit_price": "0.20"
   }
 },
 {
