@@ -104,5 +104,14 @@ class FinancesView(TemplateView):
     template_name = "Inventory/Finances.html"
 
     def get_context_data(self, **kwargs):
-        context = {}
+        context = {
+            "total_cost": round(sum([p.get_cost() for p in Purchase.objects.all()]), 2),
+            "total_revenue": round(sum(
+                [p.get_revenue() for p in Purchase.objects.all()]
+            ), 2),
+            "total_profit": round(sum(
+                [p.get_profit() for p in Purchase.objects.all()]
+            ), 2)
+        }
         return context
+
