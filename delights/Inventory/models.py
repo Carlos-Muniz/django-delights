@@ -77,4 +77,4 @@ class Purchase(models.Model):
 
     """ The revenue - the cost"""
     def get_profit(self):
-        return float(self.get_revenue) - float(self.get_cost())
+        return float(self.get_revenue()) - float(self.get_cost())
