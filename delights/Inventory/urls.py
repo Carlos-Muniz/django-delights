@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -64,4 +65,7 @@ urlpatterns = [
         name="delete_Purchase",
     ),
     path("Finances/", views.FinancesView.as_view(), name="Finances"),
+    path("logout/", views.log_out, name="logout"),
+    path("accounts/login/", auth_views.LoginView.as_view(), name="login")
 ]
+
